@@ -22,6 +22,8 @@ dependencies:
   logger: ^2.0.2+1
   url_launcher: ^6.2.3
   get_storage: ^2.1.1
+  flutter_native_splash: ^2.3.9
+  smooth_page_indicator: ^1.1.0
 
   # Product specific
 
@@ -37,9 +39,9 @@ flutter:
 
   #----------------------- LOCAL ASSETS --------------------#
   assets:
-    - assets/images
-    - assets/icons
-    - assets/logos
+    - assets/images/onboarding/
+    # - assets/icons
+    - assets/logos/
   #----------------------- LOCAL FONTS --------------------#
   fonts:
     - family: Poppins

@@ -7,15 +7,15 @@ class TOutlinedButtonTheme {
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.black,
-      side: const BorderSide(color: Colors.blue),
+      side: const BorderSide(color: Colors.grey),
       textStyle: const TextStyle(
         fontSize: 16,
         color: Colors.black,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 24),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
   );
@@ -24,15 +24,15 @@ class TOutlinedButtonTheme {
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.white,
-      side: const BorderSide(color: Colors.blue),
+      side: const BorderSide(color: Colors.grey),
       textStyle: const TextStyle(
         fontSize: 16,
         color: Colors.white,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 24),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
   );

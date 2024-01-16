@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tstore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:tstore/utils/theme/theme.dart';
 
 void main() {
@@ -16,12 +18,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'T Store',
-      themeMode: ThemeMode.system,
-      darkTheme: TAppTheme.darkTheme,
+      // themeMode: ThemeMode.system,
+      // darkTheme: TAppTheme.darkTheme,
       theme: TAppTheme.lightTheme,
-      home: const Text(''),
+      home: const OnBoardingScreen(),
     );
   }
 }
