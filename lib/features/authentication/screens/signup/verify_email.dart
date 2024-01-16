@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tstore/common/widgets/success/success_screen.dart';
 import 'package:tstore/features/authentication/screens/login/login.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -29,7 +30,7 @@ class VerifyEmailScreen extends StatelessWidget {
             children: [
               Image(
                 width: THelperFunctions.screenWidth() * 0.6,
-                image: AssetImage(
+                image: const AssetImage(
                   TImages.onboardingImage1,
                 ),
               ),
@@ -55,7 +56,14 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(
+                    () => SuccessScrenn(
+                      image: TImages.onboardingImage1,
+                      onPressed: () => Get.to(() => const LoginScreen()),
+                      title: TTexts.yourAccountCreateTitle,
+                      subTitle: TTexts.yourAccountCreatedSubTitle,
+                    ),
+                  ),
                   child: const Text(
                     TTexts.tcontinue,
                   ),
@@ -70,7 +78,7 @@ class VerifyEmailScreen extends StatelessWidget {
                     TTexts.resendEmail,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
