@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/custom_shape/container/primary_container.dart';
 import 'package:tstore/common/widgets/search_field.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
+import 'package:tstore/common/widgets/vertical_image.dart';
 import 'package:tstore/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
@@ -32,13 +33,30 @@ class HomeScreen extends StatelessWidget {
 
                   Padding(
                     padding: const EdgeInsets.only(left: TSizes.defaultSpace),
-                    child: Column(children: [
-                      TSectionHeading(
-                        showActionButton: false,
-                        title: 'Popular Categories',
-                        onPressed: () {},
-                      )
-                    ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TSectionHeading(
+                          showActionButton: false,
+                          title: 'Popular Categories',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: TSizes.spaceBtwItems),
+
+                        // LIST
+                        SizedBox(
+                          height: 80,
+                          child: ListView.builder(
+                            itemCount: 20,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (_, idx) {
+                              return const TVerticalImageText();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
