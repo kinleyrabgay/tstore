@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:tstore/utils/constants/colors.dart';
+import 'package:tstore/utils/helpers/helper_functions.dart';
 
 class TCart extends StatelessWidget {
   const TCart({
     super.key,
-    required this.iconColor,
+    this.iconColor,
     this.onPressed,
   });
 
-  final Color iconColor;
+  final Color? iconColor;
   final VoidCallback? onPressed;
 
   @override
@@ -17,9 +19,11 @@ class TCart extends StatelessWidget {
       children: [
         IconButton(
           onPressed: onPressed,
-          icon: const Icon(
+          icon: Icon(
             Iconsax.shopping_bag,
-            color: Colors.white,
+            color: THelperFunctions.isDarkMode(context)
+                ? TColors.white
+                : TColors.black,
           ),
         ),
         Positioned(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/custom_shape/container/primary_container.dart';
+import 'package:tstore/common/widgets/grid/grid.dart';
+import 'package:tstore/common/widgets/product/product_card_vertical.dart';
 import 'package:tstore/common/widgets/search_field.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/common/widgets/vertical_image.dart';
@@ -56,12 +58,32 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Carousel
-            const Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TPromoSlider(bannerItems: [
-                TImages.darkAppLogo,
-                TImages.onboardingImage1,
-              ]),
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const TPromoSlider(bannerItems: [
+                    TImages.darkAppLogo,
+                    TImages.onboardingImage1,
+                  ]),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
+                  TSectionHeading(
+                    showActionButton: true,
+                    title: 'Popular Products',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  // Item Card
+                  TGridLayout(
+                    itemCount: 4,
+                    mainAxisExtent: 260,
+                    itemBuilder: (_, idx) {
+                      return const ProductCardVertical();
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),

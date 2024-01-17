@@ -13,3 +13,5 @@ enum PaymentMethods {
   razorPay,
   paytm
 }
+
+// Comparisons
