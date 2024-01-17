@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tstore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:tstore/utils/theme/theme.dart';
 
 void main() {
-  // TODO: Add Widgets Binding
-  // TODO: Init local storage
-  // TODO: Await Native splash
-  // TODO: Initialize firebase
-  // TODO: Initialize authentication
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
   runApp(const MyApp());
 }
 
