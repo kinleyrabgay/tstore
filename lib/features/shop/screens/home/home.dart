@@ -5,6 +5,9 @@ import 'package:tstore/common/widgets/search_field.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/common/widgets/vertical_image.dart';
 import 'package:tstore/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:tstore/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:tstore/utils/constants/colors.dart';
+import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,25 +47,53 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(height: TSizes.spaceBtwItems),
 
                         // LIST
-                        SizedBox(
-                          height: 80,
-                          child: ListView.builder(
-                            itemCount: 20,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (_, idx) {
-                              return const TVerticalImageText();
-                            },
-                          ),
-                        ),
+                        const THomeCategory(),
                       ],
                     ),
                   )
                 ],
               ),
-            )
+            ),
+
+            // Carousel
+            const Padding(
+              padding: EdgeInsets.all(TSizes.defaultSpace),
+              child: TPromoSlider(bannerItems: [
+                TImages.darkAppLogo,
+                TImages.onboardingImage1,
+              ]),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class THomeCategory extends StatelessWidget {
+  const THomeCategory({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 80,
+      child: ListView.builder(
+        itemCount: 20,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (_, idx) {
+          return TVerticalImageText(
+            backgroundColor: TColors.white,
+            onTap: () {
+              // print('Called');
+            },
+            image: TImages.darkAppLogo,
+            textColor: TColors.white,
+            title: 'Shoes',
+          );
+        },
       ),
     );
   }
