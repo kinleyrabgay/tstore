@@ -52,7 +52,8 @@ class HomeScreen extends StatelessWidget {
                         const THomeCategory(),
                       ],
                     ),
-                  )
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),

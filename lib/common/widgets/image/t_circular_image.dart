@@ -14,6 +14,7 @@ class TCircularImage extends StatelessWidget {
     this.width = 56,
     this.height = 57,
     this.padding = TSizes.sm,
+    this.border = 100,
   });
 
   final BoxFit? fit;
@@ -21,18 +22,20 @@ class TCircularImage extends StatelessWidget {
   final bool isNetworkImage;
   final Color? overlayColor;
   final Color? backgroundColor;
+  final double border;
   final double width, height, padding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
-      width: 56,
+      height: height,
+      width: width,
       padding: const EdgeInsets.all(TSizes.sm),
       decoration: BoxDecoration(
         color: THelperFunctions.isDarkMode(context)
             ? TColors.black
             : TColors.white,
+        borderRadius: BorderRadius.circular(border),
       ),
       child: Image(
         fit: fit,

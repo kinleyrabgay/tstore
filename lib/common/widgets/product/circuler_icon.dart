@@ -26,7 +26,7 @@ class TCircularIcon extends StatelessWidget {
     return Container(
       width: witdh,
       height: height,
-      alignment: Alignment.center,
+      // alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: backgroundColor != null

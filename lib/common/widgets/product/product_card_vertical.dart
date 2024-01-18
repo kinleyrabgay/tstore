@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tstore/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:tstore/common/widgets/product/circuler_icon.dart';
 import 'package:tstore/common/widgets/product/price_text.dart';
@@ -7,6 +8,7 @@ import 'package:tstore/common/widgets/rounded_image.dart';
 import 'package:tstore/common/widgets/shadow.dart';
 import 'package:tstore/common/widgets/text/brand_title_with_icon.dart';
 import 'package:tstore/common/widgets/text/product_title.dart';
+import 'package:tstore/features/shop/screens/detail/product_detail.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -19,7 +21,7 @@ class ProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
