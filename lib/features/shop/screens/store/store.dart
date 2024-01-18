@@ -3,15 +3,12 @@ import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/appbar/appbar.dart';
 import 'package:tstore/common/widgets/appbar/tabbar.dart';
 import 'package:tstore/common/widgets/brand_card.dart';
-import 'package:tstore/common/widgets/brand_showcase.dart';
 import 'package:tstore/common/widgets/cart/cart.dart';
-import 'package:tstore/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:tstore/common/widgets/grid/grid.dart';
 import 'package:tstore/common/widgets/search_field.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:tstore/utils/constants/colors.dart';
-import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/helpers/helper_functions.dart';
 
