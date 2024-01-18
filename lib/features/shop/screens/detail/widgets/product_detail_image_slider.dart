@@ -7,17 +7,16 @@ import 'package:tstore/common/widgets/rounded_image.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
+import 'package:tstore/utils/helpers/helper_functions.dart';
 
 class TProduceDetailImageSlider extends StatelessWidget {
   const TProduceDetailImageSlider({
     super.key,
-    required this.dark,
   });
-
-  final bool dark;
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return CurveEdgesWidget(
       child: Container(
         color: dark ? TColors.darkerGrey : TColors.light,
