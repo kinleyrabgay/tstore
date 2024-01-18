@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/features/shop/screens/detail/widgets/product_add_to_card.dart';
@@ -7,6 +8,7 @@ import 'package:tstore/features/shop/screens/detail/widgets/product_attributes.d
 import 'package:tstore/features/shop/screens/detail/widgets/product_detail_image_slider.dart';
 import 'package:tstore/features/shop/screens/detail/widgets/product_metadata.dart';
 import 'package:tstore/features/shop/screens/detail/widgets/product_rating.dart';
+import 'package:tstore/features/shop/screens/detail/widgets/product_review.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
@@ -94,7 +96,8 @@ class ProductDetailScreen extends StatelessWidget {
                         title: 'Reviews(199)',
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () =>
+                            Get.to(() => const TProductReviewScreen()),
                         icon: const Icon(
                           CupertinoIcons.chevron_forward,
                           size: 18,
