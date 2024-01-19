@@ -45,6 +45,7 @@ flutter:
     - assets/images/onboarding/
     # - assets/icons
     - assets/logos/
+    - assets/payment/
   #----------------------- LOCAL FONTS --------------------#
   fonts:
     - family: Poppins

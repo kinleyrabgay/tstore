@@ -15,4 +15,11 @@ class TImages {
       "assets/images/onboarding/sammy-line-searching.gif";
   static const String onboardingImage3 =
       "assets/images/onboarding/sammy-line-shopping.gif";
+
+  // Payment
+  static const String googlePay = "assets/payment/google-pay.png";
+  static const String creditCard = "assets/payment/atm-card.png";
+  static const String paypal = "assets/payment/paypal.png";
+  static const String visa = "assets/payment/visa.png";
+  static const String paymentSuccess = "assets/payment/payment-success.png";
 }
