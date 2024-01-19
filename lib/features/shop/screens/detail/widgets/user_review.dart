@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:tstore/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:tstore/common/widgets/rating_indicator.dart';

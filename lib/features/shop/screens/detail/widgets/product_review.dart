@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/appbar/appbar.dart';
 import 'package:tstore/common/widgets/rating_indicator.dart';
 import 'package:tstore/features/shop/screens/detail/widgets/overall_rating_indicator.dart';
 import 'package:tstore/features/shop/screens/detail/widgets/user_review.dart';
-import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
 class TProductReviewScreen extends StatelessWidget {
