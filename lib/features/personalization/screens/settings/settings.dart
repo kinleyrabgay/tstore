@@ -6,7 +6,9 @@ import 'package:tstore/common/widgets/custom_shape/container/primary_container.d
 import 'package:tstore/common/widgets/listtile/setting_menu.dart';
 import 'package:tstore/common/widgets/listtile/user_profile.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
+import 'package:tstore/features/personalization/screens/address/address.dart';
 import 'package:tstore/features/personalization/screens/profile/profile.dart';
+import 'package:tstore/features/shop/screens/cart/cart.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -56,15 +58,17 @@ class SettingScreen extends StatelessWidget {
                     title: 'Account Setting',
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const TSettingMenuTile(
+                  TSettingMenuTile(
                     icon: Iconsax.safe_home,
                     title: 'My Address',
                     subTitle: 'Set shopping delivery address',
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
-                  const TSettingMenuTile(
+                  TSettingMenuTile(
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subTitle: 'Add, remove products and move to checkout',
+                    onTap: () => Get.to(() => const CartScreen()),
                   ),
                   const TSettingMenuTile(
                     icon: Iconsax.bag_tick,

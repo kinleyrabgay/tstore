@@ -34,7 +34,7 @@ class WishlistScreen extends StatelessWidget {
               TGridLayout(
                 mainAxisExtent: 260,
                 itemCount: 4,
-                itemBuilder: (_, idx) => ProductCardVertical(),
+                itemBuilder: (_, idx) => const ProductCardVertical(),
               )
             ],
           ),

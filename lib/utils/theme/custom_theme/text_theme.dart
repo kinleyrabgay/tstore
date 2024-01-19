@@ -47,7 +47,7 @@ class TTextTheme {
       ),
       bodySmall: const TextStyle().copyWith(
         fontSize: 14.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.normal,
         color: Colors.black,
       ),
       labelLarge: const TextStyle().copyWith(
@@ -104,7 +104,7 @@ class TTextTheme {
       ),
       bodySmall: const TextStyle().copyWith(
         fontSize: 14.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.normal,
         color: Colors.white,
       ),
       labelLarge: const TextStyle().copyWith(
