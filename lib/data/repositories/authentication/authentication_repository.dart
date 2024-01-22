@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tstore/features/authentication/screens/login/login.dart';
 import 'package:tstore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:tstore/features/authentication/screens/signup/verify_email.dart';
@@ -15,6 +16,9 @@ class AuthenticationRepository extends GetxController {
   // Variables
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  // Get Authenticated User Data
+  User? get authUser => _auth.currentUser;
 
   // Called from main.dart on app launch
   @override
@@ -46,8 +50,29 @@ class AuthenticationRepository extends GetxController {
     // Local Storage
   }
 
-  /** ----------------------------------------- Email & Password Sign-in --------------------------------*/
+  /// ----------------------------------------- Email & Password Sign-in --------------------------------
   // [EmailAuthentication] -Sign-in
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw 'Error $e';
+    } on FirebaseException catch (e) {
+      // throw TFirebaseException(e.code).message;
+      throw 'Error $e';
+    } on FormatException catch (_) {
+      // throw const TFormatException();
+      throw 'Error!';
+    } on PlatformException catch (e) {
+      // throw TargetPlatformException(e.code).message;
+      throw 'Error $e';
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
+
   // [EmailAuthentication] -Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
@@ -69,7 +94,26 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong, Please try again';
     }
   }
+
   // [EmailAuthentication] -Forgot Password
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw 'Error $e.code';
+    } on FirebaseException catch (e) {
+      // throw TFirebaseException(e.code).message;
+      throw 'Error $e';
+    } on FormatException catch (_) {
+      // throw const TFormatException();
+      throw 'Error!';
+    } on PlatformException catch (e) {
+      // throw TargetPlatformException(e.code).message;
+      throw 'Error $e';
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
 
   // [ReAuthenticate] -ReAuthenticate User
   // [MailVerification] -Verification User
@@ -92,11 +136,40 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /**----------------------------------- Federated identity & social sign-in ---------------------------- */
   // [GoogleAuthentication] -Google
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      // Trigger the auth flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
+      // Create a new credentials
+      final credentials = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      // Once signed in, return the UserCredentials
+      return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      throw 'Error $e.code';
+    } on FirebaseException catch (e) {
+      // throw TFirebaseException(e.code).message;
+      throw 'Error $e';
+    } on FormatException catch (_) {
+      // throw const TFormatException();
+      throw 'Error!';
+    } on PlatformException catch (e) {
+      // throw TargetPlatformException(e.code).message;
+      throw 'Error $e';
+    } catch (e) {
+      // throw 'Something went wrong, Please try again';
+      if (kDebugMode) print('Something went wrong: $e');
+      return null;
+    }
+  }
   // [FacebookAuthentication] -Facebook
 
-  /** --------------------------------------- ./end federated indentity & social sign-in ----------------- */
+  /// --------------------------------------- ./end federated indentity & social sign-in -----------------
   // [LogoutUser] - Logout
   Future<void> logout() async {
     try {
