@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tstore/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/constants/text_string.dart';
@@ -13,10 +15,19 @@ class TTermsCondition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = SignupController.instance;
     return Row(
       children: [
         SizedBox(
-          child: Checkbox(value: true, onChanged: (value) {}),
+          width: 24,
+          height: 24,
+          child: Obx(
+            () => Checkbox(
+              value: controller.privacyPolicy.value,
+              onChanged: (value) => controller.privacyPolicy.value =
+                  !controller.privacyPolicy.value,
+            ),
+          ),
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
         Text.rich(

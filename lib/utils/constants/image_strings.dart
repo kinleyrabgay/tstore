@@ -22,4 +22,7 @@ class TImages {
   static const String paypal = "assets/payment/paypal.png";
   static const String visa = "assets/payment/visa.png";
   static const String paymentSuccess = "assets/payment/payment-success.png";
+
+  // lottie
+  static const String noNotification = "assets/lottie/no_notifications.json";
 }

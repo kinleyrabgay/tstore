@@ -27,6 +27,11 @@ dependencies:
   carousel_slider: ^4.2.1
   readmore: ^2.2.0
   flutter_rating_bar: ^4.0.1
+  firebase_core: ^2.24.2
+  lottie: ^3.0.0
+  connectivity_plus: ^5.0.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
 
   # Product specific
 
@@ -46,6 +51,7 @@ flutter:
     # - assets/icons
     - assets/logos/
     - assets/payment/
+    - assets/lottie/
   #----------------------- LOCAL FONTS --------------------#
   fonts:
     - family: Poppins

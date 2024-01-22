@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/custom_shape/container/primary_container.dart';
 import 'package:tstore/common/widgets/grid/grid.dart';
@@ -6,8 +7,10 @@ import 'package:tstore/common/widgets/product/product_card_vertical.dart';
 import 'package:tstore/common/widgets/search_field.dart';
 import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/common/widgets/vertical_image.dart';
+import 'package:tstore/features/shop/screens/all-product/all_product.dart';
 import 'package:tstore/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:tstore/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:tstore/features/shop/screens/sub-categories/categories.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -72,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                   TSectionHeading(
                     showActionButton: true,
                     title: 'Popular Products',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const AllProductScreen()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   // Item Card
@@ -109,9 +112,7 @@ class THomeCategory extends StatelessWidget {
         itemBuilder: (_, idx) {
           return TVerticalImageText(
             backgroundColor: TColors.white,
-            onTap: () {
-              // print('Called');
-            },
+            onTap: () => Get.to(() => const SubCategoriesScreen()),
             image: TImages.darkAppLogo,
             textColor: TColors.white,
             title: 'Shoes',
