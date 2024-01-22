@@ -7,6 +7,7 @@ import 'package:tstore/common/widgets/text/section_heading.dart';
 import 'package:tstore/features/personalization/controllers/user_controller.dart';
 import 'package:tstore/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:tstore/features/personalization/screens/profile/widgets/profile_menu.dart';
+import 'package:tstore/features/personalization/screens/profile/widgets/re_authenticate_user_login_form.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
@@ -112,7 +113,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),
