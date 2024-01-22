@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/widgets/image/t_circular_image.dart';
+import 'package:tstore/common/widgets/shimmer.dart';
+import 'package:tstore/features/personalization/controllers/user_controller.dart';
 import 'package:tstore/utils/constants/colors.dart';
 
 class TProfile extends StatelessWidget {
@@ -15,6 +18,7 @@ class TProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: TCircularImage(
         image: imgUrl,
@@ -22,18 +26,32 @@ class TProfile extends StatelessWidget {
         height: 50,
         padding: 0,
       ),
-      title: Text(
-        'Coding with T',
-        style: Theme.of(context)
-            .textTheme
-            .headlineSmall!
-            .apply(color: TColors.white),
-      ),
-      subtitle: Text(
-        'Support@codingwithT.com',
-        style:
-            Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white),
-      ),
+      title: Obx(() {
+        if (controller.profileLoading.value) {
+          return const TShimmerEffect(width: 80, height: 15);
+        } else {
+          return Text(
+            controller.user.value.fullName,
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall!
+                .apply(color: TColors.white),
+          );
+        }
+      }),
+      subtitle: Obx(() {
+        if (controller.profileLoading.value) {
+          return const TShimmerEffect(width: 80, height: 15);
+        } else {
+          return Text(
+            controller.user.value.email,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .apply(color: TColors.white),
+          );
+        }
+      }),
       trailing: IconButton(
         onPressed: onPressed,
         icon: const Icon(

@@ -50,7 +50,7 @@ class LoginController extends GetxController {
       }
 
       // Register user in firebase
-      final userCredential = await AuthenticationRepository.instance
+      await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       // Remove Loader
@@ -69,8 +69,6 @@ class LoginController extends GetxController {
 
   Future<void> googleSignIn() async {
     try {
-      print('Called');
-
       TFullScreenLoader.openLoadingDialog(
         'Logging you in...',
         TImages.noNotification,
@@ -84,7 +82,6 @@ class LoginController extends GetxController {
       // Google Auth
       final userCredentials =
           await AuthenticationRepository.instance.signInWithGoogle();
-      print(userCredentials);
 
       // Save user records
       await userController.saveUserRecord(userCredentials);
