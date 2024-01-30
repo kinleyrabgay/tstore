@@ -20,12 +20,23 @@ class TProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
-      leading: TCircularImage(
-        image: imgUrl,
-        width: 50,
-        height: 50,
-        padding: 0,
-      ),
+      leading: Obx(() {
+        final networkImage = controller.user.value.profilePicture;
+        final image = networkImage.isNotEmpty ? networkImage : imgUrl;
+        return controller.imageUploading.value
+            ? const TShimmerEffect(
+                width: 80,
+                height: 80,
+                radius: 80,
+              )
+            : TCircularImage(
+                image: image,
+                isNetworkImage: networkImage.isNotEmpty,
+                width: 80,
+                height: 80,
+                border: 80,
+              );
+      }),
       title: Obx(() {
         if (controller.profileLoading.value) {
           return const TShimmerEffect(width: 80, height: 15);

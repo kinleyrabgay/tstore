@@ -237,4 +237,9 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong, Please try again';
     }
   }
+
+  // uploadUserProfilePicture() 
+  uploadUserProfilePicture() async {
+    
+  }
 }
